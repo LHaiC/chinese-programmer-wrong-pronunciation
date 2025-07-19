@@ -14,9 +14,6 @@ let init = () => {
     document
       .querySelector("#readme table tbody")
       .addEventListener("click", (event) => {
-        //console.log(event.target)
-        // console.log(event.target.nodeType)
-        // console.log(event.target.nodeName);
         let parentElement = event.target.parentElement;
         if (parentElement && parentElement.nodeName === "TR") {
           if (parentElement.firstElementChild === event.target) {
@@ -43,16 +40,26 @@ let init = () => {
         }
         if (audio_url) {
           let desURL = new URL(audio_url);
-          //console.log(desURL.protocol);
           if (desURL.protocol === "http:") {
-            //skip http
             location.href = audio_url;
           } else {
-            // console.log("audio_url:", audio_url);
             audio_player.setAttribute("src", audio_url);
           }
         }
       });
+
+    // 自动为表格的每一行增加“中文含义”列的 title 提示
+    let rows = document.querySelectorAll("#readme table tbody tr");
+    rows.forEach(row => {
+      if (row.children.length >= 5) {
+        // 第5列为中文含义
+        let meaningTd = row.children[4];
+        if (meaningTd && meaningTd.innerText.trim()) {
+          meaningTd.setAttribute("title", "中文含义: " + meaningTd.innerText.trim());
+          meaningTd.style.color = "#2b7a0b";
+        }
+      }
+    });
     document
       .querySelector("#readme table tbody")
       .addEventListener("mouseover", (event) => {
