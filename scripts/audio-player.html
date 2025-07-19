@@ -1,0 +1,23 @@
+<!-- scripts/audio-player.html -->
+<script>
+  // 等待整个网页内容加载完毕
+  document.addEventListener('DOMContentLoaded', () => {
+    // 寻找所有指向 .mp3 文件的链接
+    const audioLinks = document.querySelectorAll('a[href$=".mp3"]');
+
+    // 为每一个链接添加点击事件
+    audioLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        // 1. 阻止链接的默认跳转行为
+        event.preventDefault();
+
+        // 2. 获取音频文件的URL
+        const audioUrl = event.currentTarget.href;
+
+        // 3. 创建一个新的音频对象并播放它
+        const audio = new Audio(audioUrl);
+        audio.play();
+      });
+    });
+  });
+</script>

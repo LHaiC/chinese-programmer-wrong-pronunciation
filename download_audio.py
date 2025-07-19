@@ -3,9 +3,9 @@ import re
 import requests
 from urllib.parse import urlparse, parse_qs
 
-AUDIO_DIR = os.path.join(os.path.dirname(__file__), 'chromium_extension', 'audio')
+AUDIO_DIR = os.path.join(os.path.dirname(__file__), 'audio')
 os.makedirs(AUDIO_DIR, exist_ok=True)
-README_PATH = os.path.join(os.path.dirname(__file__), '..', 'README.md')
+README_PATH = os.path.join(os.path.dirname(__file__), 'README_url.md')
 
 with open(README_PATH, encoding='utf-8') as f:
     content = f.read()

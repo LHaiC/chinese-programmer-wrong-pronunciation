@@ -1,25 +1,56 @@
-name: Deploy to GitHub Pages
+# deploy.yml
+
+name: Deploy Pronunciation Guide to GitHub Pages
 
 on:
   push:
     branches:
       - master
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
+      - name: Create build directory
+        run: mkdir -p dist
 
-      - name: Deploy static files to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Convert README.md to HTML
+        run: |
+          pandoc README.md \
+            --standalone \
+            --from=gfm \
+            --to=html \
+            --metadata title="中国程序员容易发音错误的单词" \
+            --include-after-body scripts/audio-player.html \
+            -o dist/index.html
+
+      - name: Copy audio assets
+        run: cp -r audio dist/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: tools/chromium_extension
-          publish_branch: gh-pages
+          path: './dist'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
