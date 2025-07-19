@@ -26,6 +26,11 @@ jobs:
       - name: Create build directory
         run: mkdir -p dist
 
+      - name: Install Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+        with:
+          pandoc-version: 'latest'
+
       - name: Convert README.md to HTML
         run: |
           pandoc README.md \
