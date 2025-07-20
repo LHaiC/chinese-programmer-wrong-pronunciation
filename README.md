@@ -59,7 +59,7 @@
 | GNU | [🔊](audio/GNU_audio_1.mp3)  /gnuː/ | [🔊](audio/GNU_audio_2.mp3)  /nuː/ |  | 一个类Unix操作系统 |
 | Grafana | [🔊](audio/Grafana_audio_1.mp3)   /grəˈfɑːnˌɑː/ | [🔊](audio/Grafana_audio_2.mp3)   /grəˈfɑːnˌɑː/ |  | 一个开源的数据可视化和监控平台 |
 | GraphQL | [🔊](audio/GraphQL_audio_1.mp3)  /græf kju ɛl/ | [🔊](audio/GraphQL_audio_2.mp3)  /græf kju ɛl/ |  ❌ /dʒɪgræf kju ɛl/ | 一种用于API的查询语言 |
-| GUI | [🔊](audio/GUI_audio_1.mp3)  /ˈɡu:i/ | [🔊](audio/GUI_audio_2.mp3)  /ˈɡu:i/ |  | 图形用户界面. |
+| GUI | [🔊](audio/GUI_audio_1.mp3)  /ˈɡuːi; ˌdʒiː juː ˈaɪ/ | [🔊](audio/GUI_audio_2.mp3)  /ˈɡuːiˌˌdʒiː juː ˈaɪ/ |  | 图形用户界面. |
 | Haskell | [🔊](audio/Haskell_audio_1.mp3)  /ˈhæskəl/ | [🔊](audio/Haskell_audio_2.mp3)  /ˈhæskəl/ |  ❌ /hæˈskəl/ | 一种纯函数式编程语言. |
 | height | [🔊](audio/height_audio_1.mp3)  /haɪt/ | [🔊](audio/height_audio_2.mp3)  /haɪt/ |  ❌ /heɪt/ | 高度 |
 | hidden | [🔊](audio/hidden_audio_1.mp3)  /'hɪdn/ | [🔊](audio/hidden_audio_2.mp3)  /ˈhɪdn/ |  ❌ /'haɪdn/ | 隐藏的 |
